@@ -28,6 +28,6 @@ public struct DeviceUtils {
         UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
 #else
-    public func hapticTap(_ style: Any? = nil) { }
+    public func hapticTap(_ style: Any) { }
 #endif
 }
