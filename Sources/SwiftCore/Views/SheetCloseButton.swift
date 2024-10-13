@@ -33,7 +33,7 @@ public struct SheetCloseButton: View {
                     .contentShape(Circle())
                 })
                 .buttonStyle(PlainButtonStyle())
-                .accessibilityLabel(Text("Zavřít"))
+                .accessibilityLabel(Text("Close"))
                 
                 Spacer()
             }

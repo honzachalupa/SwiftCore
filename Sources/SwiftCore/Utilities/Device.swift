@@ -22,10 +22,10 @@ public struct DeviceUtils {
     #endif
     }
 
-#if os(iOS)
     @MainActor
     public func hapticTap(_ style: UIImpactFeedbackGenerator.FeedbackStyle = .medium) {
+#if os(iOS)
         UIImpactFeedbackGenerator(style: style).impactOccurred()
-    }
 #endif
+    }
 }

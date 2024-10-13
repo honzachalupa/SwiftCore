@@ -15,15 +15,15 @@ public struct DateTimeUtils {
         let calendar = Calendar.current
         
         if (calendar.isDateInYesterday(date)) {
-            return String(localized: "Yesterday")
+            return String(localized: "Yesterday", bundle: .module)
         }
         
         if (calendar.isDateInToday(date)) {
-            return String(localized: "Today")
+            return String(localized: "Today", bundle: .module)
         }
         
         if (calendar.isDateInTomorrow(date)) {
-            return String(localized: "Tomorrow")
+            return String(localized: "Tomorrow", bundle: .module)
         }
         
         return formatDate(date, isShort: true)
