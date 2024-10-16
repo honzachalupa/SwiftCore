@@ -13,6 +13,18 @@ public struct MultiPicker<LabelView: View, T: Identifiable & Hashable>: View {
     
     @State
     private var isOptionsPresented: Bool = false
+    
+    public init(
+        label: LabelView,
+        options: [T],
+        valueFormatter: @escaping (T) -> String,
+        selection: Binding<[T]>
+    ) {
+        self.label = label
+        self.options = options
+        self.valueFormatter = valueFormatter
+        self.selection = selection
+    }
 
     private var formattedSelectedListString: String {
         selection.wrappedValue.count > 0 ?
@@ -47,9 +59,9 @@ public struct MultiPicker<LabelView: View, T: Identifiable & Hashable>: View {
     }
 }
 
-public struct MultiPickerChildView<T: Identifiable & Hashable>: View {
-    public let options: [T]
-    public let valueFormatter: (T) -> String
+struct MultiPickerChildView<T: Identifiable & Hashable>: View {
+    let options: [T]
+    let valueFormatter: (T) -> String
 
     @Binding
     public var selection: [T]
@@ -57,7 +69,7 @@ public struct MultiPickerChildView<T: Identifiable & Hashable>: View {
     @State
     private var selectionNillable: [T?] = []
 
-    public var body: some View {
+    var body: some View {
         List {
             ForEach(options.indices, id: \.self) { index in
                 let option = options[index]
