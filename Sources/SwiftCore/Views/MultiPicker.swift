@@ -1,15 +1,15 @@
 import SwiftUI
 
 public struct IdentifiableString: Identifiable, Hashable {
-    let string: String
+    public let string: String
     public var id: String { string }
 }
 
 public struct MultiPicker<LabelView: View, T: Identifiable & Hashable>: View {
-    let label: LabelView
-    let options: [T]
-    let valueFormatter: (T) -> String
-    var selection: Binding<[T]>
+    public let label: LabelView
+    public let options: [T]
+    public let valueFormatter: (T) -> String
+    public var selection: Binding<[T]>
     
     @State
     private var isOptionsPresented: Bool = false
