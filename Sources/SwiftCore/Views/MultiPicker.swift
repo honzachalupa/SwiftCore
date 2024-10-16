@@ -47,9 +47,9 @@ public struct MultiPicker<LabelView: View, T: Identifiable & Hashable>: View {
     }
 }
 
-struct MultiPickerChildView<T: Identifiable & Hashable>: View {
-    let options: [T]
-    let valueFormatter: (T) -> String
+public struct MultiPickerChildView<T: Identifiable & Hashable>: View {
+    public let options: [T]
+    public let valueFormatter: (T) -> String
 
     @Binding
     public var selection: [T]
@@ -57,7 +57,7 @@ struct MultiPickerChildView<T: Identifiable & Hashable>: View {
     @State
     private var selectionNillable: [T?] = []
 
-    var body: some View {
+    public var body: some View {
         List {
             ForEach(options.indices, id: \.self) { index in
                 let option = options[index]
