@@ -4,6 +4,7 @@ public enum DeviceName: String {
     case iPhone
     case iPad
     case watch
+    case mac
 }
 
 public struct DeviceUtils {
@@ -12,6 +13,9 @@ public struct DeviceUtils {
     @MainActor
     public func getName() -> DeviceName {
     #if os(iOS)
+        if (ProcessInfo.processInfo.isiOSAppOnMac) {
+            return .mac
+        } else
         if (UIDevice.current.userInterfaceIdiom == .phone) {
             return .iPhone
         } else {
